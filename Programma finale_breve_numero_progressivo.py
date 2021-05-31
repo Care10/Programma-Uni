@@ -4,7 +4,7 @@ cognome=input("Inserisci cognome: ")
 indirizzo=input("Inserisci indirizzo: ")
 bonus=input("Inserisci bonus: ")
 
-numero=len([number for number in os.listdir(os.getcwd())])
+numero=len([number for number in os.listdir(os.getcwd()) if os.path.isdir(number)])
 
 #if os.path.isfile(number)
 
@@ -18,12 +18,14 @@ def autoIncrement():
         numero += pInterval
     return numero
 
+numero=autoIncrement()
 
+#numero=autoIncrement()
 
 #Creazione root
-os.makedirs("{}_{}_{}_{}".format(nome,cognome,indirizzo,bonus))
+os.makedirs("{}_{}_{}_{}_{}".format(numero,nome,cognome,indirizzo,bonus))
 #Entrata in root
-os.chdir("{}_{}_{}_{}".format(nome,cognome,indirizzo,bonus))
+os.chdir("{}_{}_{}_{}_{}".format(numero,nome,cognome,indirizzo,bonus))
 root=os.getcwd()
 
 #01 FASE PRELIMINARE
